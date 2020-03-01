@@ -57,6 +57,7 @@
   margin-left: -50px;
   padding-bottom: 38px;
   padding-left: 50px;
+  display: none;
 }
 
 .popover ul {
@@ -64,4 +65,9 @@
     padding-left: 20px;
     padding-top: 20px;
     width: -webkit-fill-available;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+    display:block;
 }
