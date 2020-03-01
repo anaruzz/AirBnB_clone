@@ -57,6 +57,7 @@
   border-bottom: 1px solid #DDDDDD;
   align-items: center;
   padding-left: 10px;
+  display: block;
 }
 
 .information .max_guest {
@@ -105,3 +106,7 @@
     float: bottom;
     position: relative;
     margin-top: 55px;}
+
+.task_8 {
+  position: relative !important;
+}
