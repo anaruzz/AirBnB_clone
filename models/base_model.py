@@ -5,6 +5,7 @@ Module that defines the class BaseModel
 import uuid
 from datetime import datetime
 
+
 class BaseModel():
     """
     Class that defines common attributes and methods for
