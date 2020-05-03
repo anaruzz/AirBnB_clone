@@ -21,7 +21,7 @@ class BaseModel():
 
     def __str__(self):
         ncl = self.__class__.__name__
-        return '[' + ncl + '] (' + self.id + ' ' + str(self.__dict__)
+        return '[' + ncl + '] (' + self.id + ') ' + str(self.__dict__)
 
     def save(self):
         self.updated_at = datetime.now()
