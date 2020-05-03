@@ -35,3 +35,12 @@ class BaseModel():
                 dic[key] = value
         dic['__class__'] = self.__class__.__name__
         return dic
+
+class BaseModel(BaseModel):
+    """Doc
+    """
+
+    def __str__(self):
+        """Doc
+        """
+        return "Fake"
