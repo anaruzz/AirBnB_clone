@@ -28,11 +28,8 @@ class TestFileStorage(unittest.TestCase):
         """test when new is created"""
         storage = FileStorage()
         obj = storage.all()
-        user = User()
-        user.id = 123455
-        user.name = "Kevin"
         storage.new(user)
-        key = user.__class__.__name__ + "." + str(user.id)
+        key = self.__class__.__name__ + "." + str(self.id)
         self.assertIsNotNone(obj[key])
 
     def test_reload(self):
