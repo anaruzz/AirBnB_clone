@@ -6,6 +6,7 @@ Module that creates a line oriented command interpreter
 from cmd import Cmd
 from models import storage
 from models.base_model import BaseModel
+import json
 
 
 class HBNBCommand(Cmd):
@@ -89,21 +90,32 @@ class HBNBCommand(Cmd):
 
     def do_all(self, arg):
         objects = storage.all()
-        pr_list = []
+        new_list = []
         if not arg:
             for key in objects.keys():
-                pr_list.append(key)
-            print(pr_list)
+                new_list.append(key)
+            print(new_list)
             return
         class_name = arg.split(' ')[0]
         if class_name not in self.all_classes:
             print("** class doesn't exist **")
             return
         else:
-            for key in objects.keys():
-                if class_name == key.split('.')[0]:
-                    pr_list.append(objects[key])
-            print(pr_list)
+            new_list=[]
+            class_name = str(objects).split('.')[0]
+            class_name = class_name.split('\'')[1]
+            instance_id = str(objects).split('.')[1]
+            instance_id = instance_id.split('\'')[0]
+            beg = "[" + class_name + "] (" + instance_id + ")"
+            print(class_name)
+            print(instance_id)
+            print()
+            for obj in objects.items():
+                if obj[0].split('.')[0] == class_name:
+                    new_list.append(beg)
+                    new_list.append(obj[1].to_dict())
+            print(new_list)
+            return
 
     def do_update(self, arg):
         if not arg:
