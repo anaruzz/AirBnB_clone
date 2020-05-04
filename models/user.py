@@ -4,7 +4,7 @@
 Module that defines the class User
 """
 from models.base_model import BaseModel
-
+import models
 
 class User(BaseModel):
     """

@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 """
-Module that defines the class User
+Module that defines the class Place
 """
 from models.base_model import BaseModel
 import models
 
-class City(BaseModel):
+class Place(BaseModel):
     """
-    class City
+    class Place
     """
     city_id = ""
     user_id = ""
