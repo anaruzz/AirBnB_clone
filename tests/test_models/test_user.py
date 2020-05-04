@@ -24,3 +24,7 @@ class TestUser(unittest.TestCase):
 
     def test_user_has_password(self):
         self.assertTrue('password' in User.__dict__)
+
+    def test_password_is_not_None(self):
+        s = User()
+        self.assertIsNotNone(s.password)
