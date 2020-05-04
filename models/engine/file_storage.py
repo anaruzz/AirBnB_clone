@@ -45,7 +45,7 @@ class FileStorage:
         deserialises __objects the JSON file to __objects
         """
         try:
-            with open(self.__file_path, 'r') as file:
+            with open(self.__file_path, 'r', encoding="UTF-8") as file:
                 data = json.load(file)
                 for k, v in data.items():
                     obj = eval(k.split('.')[0])(**v)
