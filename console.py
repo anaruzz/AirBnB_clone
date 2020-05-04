@@ -14,7 +14,7 @@ class HBNBCommand(Cmd):
     entry point hbnb class
     """
     prompt = "(hbnb) "
-    all_classes = ["BaseModel",]
+    all_classes = ["BaseModel", "User"]
 
     def do_quit(self, arg):
         """Quits the console."""

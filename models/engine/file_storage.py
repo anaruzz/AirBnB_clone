@@ -6,6 +6,7 @@ and stores it in a file and vice versa
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
 import os
 
 class FileStorage:
