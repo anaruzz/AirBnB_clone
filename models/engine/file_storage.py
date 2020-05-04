@@ -35,11 +35,8 @@ class FileStorage:
         """
         new_dict = {}
         for key, val in self.__objects.items():
-            if type(val) is dict:
-                new_dict[key] = val
-            else:
-                new_dict[key] = val.to_dict()
-        with open(self.__file_path, mode="w") as file:
+            new_dict[key] = val.to_dict()
+        with open(self.__file_path, mode="w", encoding="UTF-8") as file:
             json_text = json.dumps(new_dict)
             file.write(json_text)
 
@@ -47,10 +44,11 @@ class FileStorage:
         """
         deserialises __objects the JSON file to __objects
         """
-        if os.stat(self.__file_path):
-            if os.stat(self.__file_path).st_size != 0:
-                with open(self.__file_path, 'r') as file:
-                    data = json.load(file)
-                    for k, v in data.items():
-                        obj = eval(k.split('.')[0])(**v)
-                        self.new(obj)
+        try:
+            with open(self.__file_path, 'r') as file:
+                data = json.load(file)
+                for k, v in data.items():
+                    obj = eval(k.split('.')[0])(**v)
+                    self.new(obj)
+        except FileNotFoundError:
+            pass
